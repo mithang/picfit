@@ -1,0 +1,31 @@
+1. Cài đặt:
+git clone https://github.com/thoas/picfit.git
+cd picfit && make build
+Tạo file cấu hình tại root config.json
+{
+    "port": 3001,
+    "storage": {
+        "src": {
+            "type": "fs",
+            "location": "/Users/mv962/Downloads/Projects/GoProjects/picfit/uploads"
+        }
+    },
+    "kvstore": {
+        "type": "cache"
+    }
+}
+Tạo folder uploads
+2. Run server
+./bin/picfit --config=./config.json
+3. Thao tác
+http://localhost:3001/display?url=https://cdn.pixabay.com/photo/2023/02/07/18/56/rocket-7774875_1280.png&w=0&h=100&op=resize
+=> Trả về ảnh được cắt và lưu trữ trong file upload
+=> Sau khi cắt xong có thể dùng ảnh đã upload và tiếp tục resize...
+http://localhost:3001/display/resize/0x400/9b1941fa91c547bd3b45297117646311.png
+Nếu trong thư mục có folder con nữa thì 
+http://localhost:3001/display/resize/0x400/2020/9b1941fa91c547bd3b45297117646311.png
+
+
+
+
+
